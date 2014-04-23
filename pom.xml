@@ -21,6 +21,35 @@
     </resources>
     <plugins>
       <plugin>
+ <artifactId>maven-resources-plugin</artifactId> 
+<version>2.6</version>
+ <executions> 
+  <execution> 
+    <id>copy-resources</id> <!-- here the phase you need -->
+     <phase>install</phase> 
+     <goals>
+      <goal>copy-resources</goal> 
+    </goals> 
+    <configuration> 
+      <outputDirectory>${basedir}/target/</outputDirectory>
+       <resources> 
+        <resource>
+         <directory>src/</directory>
+          <filtering>false</filtering> 
+          <includes> 
+            <include>Log4j.xml</include> 
+            <include>config.properties</include> 
+          </includes> 
+          <excludes> 
+             <exclude>*.jar</exclude>
+             </excludes> 
+           </resource> 
+         </resources> 
+       </configuration>
+        </execution>
+         </executions>
+          </plugin> 
+      <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.1</version>
         <configuration>
@@ -33,32 +62,28 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
                     <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                              <classpathPrefix>  ./</classpathPrefix>
-                            <mainClass>Runner</mainClass>
-                        </manifest>
-                    </archive>
+                         <manifestFile>resources/Manifest.mf</manifestFile>
+                    </archive>    
                 </configuration>
             </plugin>
       <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>
-                              ${project.build.directory}
-                            </outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+                <execution>
+                    <id>copy</id>
+                    <phase>install</phase>
+                    <goals>
+                        <goal>copy-dependencies</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>
+                          ${project.build.directory}
+                        </outputDirectory>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
     </plugins>
   </build>
   <dependencies>
@@ -69,3 +94,6 @@
   	</dependency>
   </dependencies>
 </project>
+
+
+

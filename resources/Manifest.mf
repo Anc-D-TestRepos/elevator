@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Built-By: Администратор
+Build-Jdk: 1.7.0_17
+Class-Path: . log4j-1.2.17.jar
+Created-By: Apache Maven 3.2.1
+Main-Class: Runner
+Archiver-Version: Plexus Archiver
+
