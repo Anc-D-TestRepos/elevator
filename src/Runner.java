@@ -38,16 +38,13 @@ public class Runner  {
 	private static final String NEW_LINE = "\n";
 	private static final String INPUT_ERROR = " Incorrect data from input file "; 
 	private static final String THREAD_ERROR = "- thread ending with error  - ";
-	private static       Logger logger ;
-	
-	{
-	DOMConfigurator.configure(getClass().getClassLoader().getResource("resources/log4j.xml"));	
-	}
+	private static       Logger logger = Logger.getLogger(Runner.class);
+
 	
 	
 	public static void main(String[] args) {
 		
-		logger= Logger.getLogger(Runner.class);
+		
 		int storiesNumber = 0;
 		int elevatorCapacity;
 		int passengerNumber;

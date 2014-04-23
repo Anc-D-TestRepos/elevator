@@ -21,34 +21,34 @@
     </resources>
     <plugins>
       <plugin>
- <artifactId>maven-resources-plugin</artifactId> 
-<version>2.6</version>
- <executions> 
-  <execution> 
-    <id>copy-resources</id> <!-- here the phase you need -->
-     <phase>install</phase> 
-     <goals>
-      <goal>copy-resources</goal> 
-    </goals> 
-    <configuration> 
-      <outputDirectory>${basedir}/target/</outputDirectory>
-       <resources> 
-        <resource>
-         <directory>src/</directory>
-          <filtering>false</filtering> 
-          <includes> 
-            <include>Log4j.xml</include> 
-            <include>config.properties</include> 
-          </includes> 
-          <excludes> 
-             <exclude>*.jar</exclude>
-             </excludes> 
-           </resource> 
-         </resources> 
-       </configuration>
-        </execution>
-         </executions>
-          </plugin> 
+        <artifactId>maven-resources-plugin</artifactId> 
+        <version>2.6</version>
+         <executions> 
+          <execution> 
+            <id>copy-resources</id> <!-- here the phase you need -->
+             <phase>install</phase> 
+             <goals>
+              <goal>copy-resources</goal> 
+            </goals> 
+            <configuration> 
+              <outputDirectory>${basedir}/target/</outputDirectory>
+               <resources> 
+                <resource>
+                 <directory>src/</directory>
+                  <filtering>false</filtering> 
+                  <includes> 
+                    <include>Log4j.xml</include> 
+                    <include>config.properties</include> 
+                  </includes> 
+                  <excludes> 
+                     <exclude>*.jar</exclude>
+                  </excludes> 
+                </resource> 
+              </resources> 
+            </configuration>
+          </execution>
+        </executions>
+      </plugin> 
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.1</version>
@@ -57,15 +57,15 @@
           <target>1.7</target>
         </configuration>
       </plugin>
-       <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <archive>
-                         <manifestFile>resources/Manifest.mf</manifestFile>
-                    </archive>    
-                </configuration>
-            </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifestFile>resources/Manifest.mf</manifestFile>
+              </archive>    
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
